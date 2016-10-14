@@ -1,0 +1,19 @@
+<h2>Publications</h2>
+
+<%= link_to 'New publication', new_admin_publication_path, class: 'btn btn-primary' %>
+
+<% @publications.each do |p| %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title"><%= p.title %></h3>
+		</div>
+		<div class="panel-body">
+			<p><%= p.description %></p>
+			<p><%= p.file_url_html %></p>
+		</div>
+		<div class="panel-footer">
+			<%=link_to "View more details", admin_publication_path(p), class: "btn btn-default" %>
+			<%=link_to "Edit publication", edit_admin_publication_path(p), class: "btn btn-default" %>
+		</div>
+	</div>
+	<% end %>
